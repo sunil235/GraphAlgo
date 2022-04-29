@@ -1,20 +1,33 @@
-# This is a sample Python script.
+# Depth First Search
+from collections import deque
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 def deptFirstPrint(graph: dict, source):
     stack = [source]
     while len(stack) > 0:
         current = stack.pop()
-        print(current)
+        print(current, end=" ")
         for neighbour in graph[current]:
             stack.append(neighbour)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    list1 = {'a': ['b', 'c'], 'b': ['d'], 'c': ['e'], 'd': ['f'], 'e': [], 'f': []}
-    deptFirstPrint(list1, 'a')
+def breadthFirstPrint(graph: dict, source):
+    queue = [source]
+    while len(queue) > 0:
+        current = queue[0]
+        print(current, end=" ")
+        queue = queue[1:]
+        for neighbour in graph[current]:
+            queue.append(neighbour)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+if __name__ == '__main__':
+
+    z = input("Enter the search DFS/BFS:")
+
+    list1 = {'a': ['b', 'c'], 'b': ['d'], 'c': ['e'], 'd': ['f'], 'e': [], 'f': []}
+    if z == 'DFS':
+        deptFirstPrint(list1, 'a')
+    else:
+        pass
+        breadthFirstPrint(list1, 'a')
