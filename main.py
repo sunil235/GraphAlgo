@@ -30,7 +30,7 @@ def breadthFirstPrint(graph: dict, node, visited):
         visited.append(node)
     while len(visited) > 0:
         current = graph[node]
-        #graph = graph[1:]
+        graph = graph[1:]
         for k in graph[current]:
             if k not in visited:
                 visited.append(k)
