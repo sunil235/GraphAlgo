@@ -39,7 +39,7 @@ def buildAdjList(wordlist):
 
 if __name__ == '__main__':
 
-    file = input("Enter the full file path :")
+    file = input("Enter the full file path incl Filename with extn :")
     dictl = {}  # Dict obj to store label and ids
     with open(file, "r+") as f:
         for nodeid, label in enumerate(f):
