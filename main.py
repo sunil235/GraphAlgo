@@ -39,6 +39,7 @@ def buildAdjList(wordlist):
 
 if __name__ == '__main__':
 
+    # Read file contents
     file = input("Enter the full file path incl Filename with extn :")
     dictl = {}  # Dict obj to store label and ids
     with open(file, "r+") as f:
@@ -46,6 +47,7 @@ if __name__ == '__main__':
             dictl[label.rstrip('\n')] = nodeid
     f.close()
 
+    # Get option (DFS/BFS)
     GetOption = input("Enter the search DFS/BFS:")
     GetWord = input("Enter label:")
     if GetOption == 'DFS':
@@ -53,7 +55,7 @@ if __name__ == '__main__':
         if GetWord not in dictl.keys():
             print("Label not found")
         else:
-            print(f"Adj list : {deptFirstPrint(buildAdjList(list(dictl.keys())), GetWord, [])} ")
+            print(f"Graph traversal : {deptFirstPrint(buildAdjList(list(dictl.keys())), GetWord, [])} ")
             print(f"Node id : {dictl[GetWord]}")
         end = timer()
         print("\nTime taken for " + GetOption + " is :" + str(timedelta(seconds=end - start)) + " seconds")
@@ -62,7 +64,7 @@ if __name__ == '__main__':
         if GetWord not in dictl.keys():
             print("Label not found")
         else:
-            print(f"Adj list : {breadthFirstPrint(buildAdjList(list(dictl.keys())), GetWord, [])} ")
+            print(f"Graph traversal : {breadthFirstPrint(buildAdjList(list(dictl.keys())), GetWord, [])} ")
             print(f"Node id : {dictl[GetWord]}")
         end = timer()
         print("\nTime taken for " + GetOption + " is :" + str(timedelta(seconds=end - start)) + " seconds")
